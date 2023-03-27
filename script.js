@@ -1,19 +1,18 @@
-function majorityElementChecker(arr) 
- { 
-   let map = new Map(); 
-   for(let i = 0; i < arr.length; i++) { 
-        if (map.has(arr[i])) { 
-        let count = map.get(arr[i]) +1; 
-         if (count > arr.length /2) { 
-               document.write("Majority found :- " + arr[i]); 
-            return; 
-     } else 
-            map.set(arr[i], count); 
-      } 
-         else 
-             map.set(arr[i],1); 
-         } 
-         document.write(" No Majority element"); 
- } 
- let arr = [2,1,2]; 
- majorityElementChecker(arr);
+function majorityElement(nums) {
+  let count = 0;
+  let candidate = null;
+
+  for (let i = 0; i < nums.length; i++) {
+    if (count === 0) {
+      candidate = nums[i];
+    }
+
+    if (nums[i] === candidate) {
+      count++;
+    } else {
+      count--;
+    }
+  }
+
+  return candidate;
+}
